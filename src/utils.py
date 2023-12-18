@@ -21,6 +21,7 @@ def save_object(file_path,obj):
 
 
     except Exception as e:
+        logging.info('Error occured in save_object method')
         raise CustomException(e,sys)
     
 def evaluate_model(X_train,X_test,y_train,y_test, models):
@@ -43,4 +44,14 @@ def evaluate_model(X_train,X_test,y_train,y_test, models):
 
         return report
     except Exception as e:
+        logging.info('Error occured in evaulate_model method')
+        raise CustomException(e,sys)
+
+def load_object(path):
+    try:
+        with open(path,'rb') as file_obj:
+            return pickle.load(file_obj)
+        
+    except Exception as e:
+        logging.info('Error occured in load_object method')
         raise CustomException(e,sys)

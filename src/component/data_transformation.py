@@ -45,7 +45,7 @@ class DataTransformation:
                 steps=[
                     ('imputer',SimpleImputer(strategy='most_frequent')),
                     ('ordinal',OrdinalEncoder(categories=[cut_categories,color_categories,clarity_categories])),
-                    ('sclaer',StandardScaler())
+                    ('scaler',StandardScaler())
                 ]
             )
 
